@@ -1,0 +1,9 @@
+{
+  "name": "seated",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Seated — find the best cinema seat and preview it in 3D before you book.",
+  "workspaces": [
+    "packages/*"
+  ]
+}
