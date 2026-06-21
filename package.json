@@ -5,5 +5,8 @@
   "description": "Seated — find the best cinema seat and preview it in 3D before you book.",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "test": "npm run test -w @seated/core"
+  }
 }
