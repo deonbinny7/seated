@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev -w @seated/server\" \"npm run dev -w @seated/web\"",
     "build": "npm run build -w @seated/web",
+    "build:extension": "npm run build -w @seated/extension",
     "test": "npm run test -w @seated/core"
   },
   "devDependencies": {

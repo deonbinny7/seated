@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Seated for BookMyShow",
+  "version": "1.0.0",
+  "description": "Scores the seats on BookMyShow's seat map, finds the best ones still free, and shows the view from them in 3D.",
+  "content_scripts": [
+    {
+      "matches": ["https://in.bookmyshow.com/*"],
+      "js": ["reader.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://in.bookmyshow.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
