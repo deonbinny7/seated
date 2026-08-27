@@ -11,7 +11,8 @@
     "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev -w @seated/server\" \"npm run dev -w @seated/web\"",
     "build": "npm run build -w @seated/web",
     "build:extension": "npm run build -w @seated/extension",
-    "test": "npm run test -w @seated/core"
+    "test": "npm run test -w @seated/core",
+    "typecheck": "npm run typecheck -w @seated/core && npm run typecheck -w @seated/server && npm run typecheck -w @seated/web && npm run typecheck -w @seated/extension"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
