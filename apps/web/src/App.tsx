@@ -56,6 +56,10 @@ export function App() {
       <main>
         {cities.error ? (
           <p className="notice error">{cities.error}</p>
+        ) : !cities.data ? (
+          <p className="notice">
+            {cities.slow ? 'Waking the server up. The first visit after a quiet spell can take up to a minute.' : 'Loading…'}
+          </p>
         ) : (
           <Suspense fallback={<p className="notice">Loading…</p>}>
             <Routes>

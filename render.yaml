@@ -1,0 +1,12 @@
+# Render blueprint for the Seated API. In Render: New > Blueprint, pick this repository.
+services:
+  - type: web
+    name: seated-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start -w @seated/server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"

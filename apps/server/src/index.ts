@@ -1,5 +1,6 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 import {
   bestBlock, buildGeometry, scoreAll,
   type ApiMeta, type BestPick, type BlockFilters, type MovieShowtimes, type ShowDetail,
@@ -12,6 +13,14 @@ import { TtlCache, upcomingDates } from './util';
 const provider: ShowtimeProvider = new SyntheticProvider();
 
 const app = new Hono();
+
+// In production the web app is served from a different origin (Vercel) than this API (Render).
+// The API is public and read-only, so any origin may read it unless ALLOWED_ORIGIN narrows that.
+app.use('/api/*', cors({ origin: process.env.ALLOWED_ORIGIN?.split(',') ?? '*' }));
+
+/** Health check for the hosting platform, and a quick way to see the API is awake. */
+app.get('/api/health', (c) => c.json({ ok: true }));
+app.get('/', (c) => c.text('Seated API. See /api/cities'));
 /** Ranking a film scans every show's seat map, so results are kept for two minutes. */
 const bestCache = new TtlCache<BestPick[]>(120_000);
 
@@ -105,6 +114,6 @@ app.get('/api/shows/:id', async (c) => {
 });
 
 const port = Number(process.env.PORT) || 8787;
-serve({ fetch: app.fetch, port }, () => {
-  console.log(`Seated API (${provider.name} provider) on http://localhost:${port}`);
+serve({ fetch: app.fetch, port, hostname: '0.0.0.0' }, () => {
+  console.log(`Seated API (${provider.name} provider) listening on port ${port}`);
 });
