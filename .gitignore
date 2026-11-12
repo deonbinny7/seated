@@ -4,3 +4,5 @@ dist/
 *.log
 # Third-party repo cloned for study only (REA reverse-engineering toolkit)
 reference/
+# Personal documents (resume has phone number); keep out of the public repo
+resume/

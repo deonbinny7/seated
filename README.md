@@ -2,11 +2,15 @@
 
 Find the best cinema seats still free for any show, and preview the view from them in 3D before you book.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-seated--dun.vercel.app-brightgreen?style=flat-square&logo=vercel)](https://seated-dun.vercel.app/)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue?style=flat-square&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-18.3-61dafb?style=flat-square&logo=react&logoColor=black)
 ![Three.js](https://img.shields.io/badge/Three.js-r170-black?style=flat-square&logo=three.js&logoColor=white)
 ![Tests](https://img.shields.io/badge/Tests-10%20passed-brightgreen?style=flat-square)
 ![Monorepo](https://img.shields.io/badge/Monorepo-npm%20workspaces-red?style=flat-square&logo=npm&logoColor=white)
+
+**Live Web Application:** [https://seated-dun.vercel.app](https://seated-dun.vercel.app/)  
+**Live API Service:** [https://seated-api.onrender.com](https://seated-api.onrender.com)
 
 > [!NOTE]
 > **Data transparency:** The web app runs on deterministic simulated data (procedural cinemas, films, and clock-driven availability); only the geometric scoring engine and 3D hall rendering are live. Seated does **not** scrape BookMyShow or District servers. Real booking data is read exclusively on the client side through the Chrome extension, inspecting the seat map already rendered in the user's browser.
@@ -206,7 +210,11 @@ The compiled extension output is generated at `apps/extension/dist/`.
 
 ## Deployment
 
-The web app deploys as two free services: the API on Render and the front end on Vercel.
+The production application is deployed as two cloud services:
+- **Web Client (Vercel):** [https://seated-dun.vercel.app](https://seated-dun.vercel.app/)
+- **API Backend (Render):** [https://seated-api.onrender.com](https://seated-api.onrender.com) (Health check: [`/api/health`](https://seated-api.onrender.com/api/health))
+
+### Deploying Your Own Instance
 
 **1. API on Render**
 
